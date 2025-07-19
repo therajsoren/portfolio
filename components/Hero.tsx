@@ -6,7 +6,7 @@ import Arrow from "./Arrow";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen p-4 md:pt-12">
+    <div className="min-h-screen px-8">
       <div className="relative inline-block">
         <DrawerComponent />
         <Arrow />
