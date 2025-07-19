@@ -3,11 +3,10 @@ import { Button } from "./ui/button";
 import DrawerComponent from "./Drawer";
 import Link from "next/link";
 import Arrow from "./Arrow";
-import AboutMe from "@/About/page";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen p-4 md:pt-12">
       <div className="relative inline-block">
         <DrawerComponent />
         <Arrow />
@@ -19,7 +18,7 @@ const Hero = () => {
             Full Stack{" "}
           </span>
           developer based in{" "}
-          <span className="dark:bg-[linear-gradient(to_bottom,#e76621_55%,#f6faf9_50%,#f6faf9_66.6%,#7be721_30%)] dark:bg-clip-text dark:text-transparent">
+          <span className="dark:bg-[linear-gradient(to_bottom,#e76621_55%,#f6faf9_50%,#f6faf9_66.6%,#7be721_30%)] dark:bg-clip-text dark:text-transparent whitespace-nowrap">
             India{" "}
           </span>
         </h1>
@@ -33,7 +32,6 @@ const Hero = () => {
           </Button>
         </Link>
       </div>
-      <AboutMe />
     </div>
   );
 };
