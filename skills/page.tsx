@@ -1,5 +1,5 @@
 import { skills } from "@/data";
-
+import { motion } from "motion/react";
 const Skill = () => {
   return (
     <div className="max-w-2xl mx-auto mb-8 mt-4 ">
