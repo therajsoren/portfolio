@@ -5,15 +5,15 @@ import Link from "next/link";
 
 const Projects = () => {
   return (
-    <div className="mt-[2rem] mb-10" id="projects">
+    <div className="mt-[2rem] mb-20" id="projects">
       <div className="mb-[1rem]">
         <h1 className="text-4xl font-black tracking-tighter">Projects</h1>
       </div>
       <h1 className="text-2xl max-w-3xl mx-auto tracking-tight">
         Check outs my projects
-        <p className="h-0.5 w-1/3 mx-auto relative">
+        <div className="h-0.5 w-1/3 mx-auto relative">
           <BorderBeam />
-        </p>
+        </div>
       </h1>
       <CardProjects />
       <Link href="https://github.com/therajsoren" target="_blank">

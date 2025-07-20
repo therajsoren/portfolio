@@ -11,9 +11,9 @@ const Card = ({
     <div>
       <div className="mb-[1rem]">
         <h1 className="text-4xl font-black tracking-tighter">{heading}</h1>
-        <p className="h-0.5 relative w-1/4 mx-auto">
+        <h2 className="h-0.5 relative w-1/4 mx-auto">
           <BorderBeam />
-        </p>
+        </h2>
       </div>
       <div className="p-2">{children}</div>
     </div>

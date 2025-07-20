@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import Background from "@/components/background";
+import { HyperspaceBackground } from "@/components/hyperspace-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <Background /> */}
+          <Background />
+          {/* <HyperspaceBackground/> */}
           <Header />
           {children}
         </ThemeProvider>

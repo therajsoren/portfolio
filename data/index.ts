@@ -107,7 +107,7 @@ export const skills: Skill[] = [
   {
     id: 7,
     name: "Vercel",
-    logo: "/vercel.svg",
+    logo: "/vercel_dark.svg",
   },
   {
     id: 8,
@@ -117,7 +117,7 @@ export const skills: Skill[] = [
   {
     id: 9,
     name: "Express.js",
-    logo: "/expressjs.svg",
+    logo: "/expressjs_dark.svg",
   },
   {
     id: 10,
