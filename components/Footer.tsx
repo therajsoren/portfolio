@@ -1,11 +1,14 @@
 import { footerLinks, navLinks } from "@/data";
 import Link from "next/link";
+import { BorderBeam } from "./magicui/border-beam";
 
 const Footer = () => {
   const currenYear = new Date().getFullYear();
   return (
     <div className="mt-4 mb-4 p-2">
-      <p className="h-0.5 bg-gray-800"></p>
+      <p className="h-0.5 bg-gray-800 relative">
+        <BorderBeam size={400}/ >
+      </p>
       <div className="flex pt-4 pb-6 justify-around items-center">
         <div className="flex flex-col space-y-3 text-slate-500/90 text-base tracking-wide w-fit p-4">
           {footerLinks.map((link, index) => (
