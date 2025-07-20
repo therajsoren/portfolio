@@ -4,12 +4,12 @@ import Link from "next/link";
 const Footer = () => {
   const currenYear = new Date().getFullYear();
   return (
-    <div className="mt-4 mb-2 p-2">
+    <div className="mt-4 mb-4 p-2">
       <p className="h-0.5 bg-gray-800"></p>
       <div className="flex pt-4 pb-6 justify-around items-center">
-        <div className="flex flex-col space-y-3 text-slate-500/90 text-base tracking-wide w-fit">
+        <div className="flex flex-col space-y-3 text-slate-500/90 text-base tracking-wide w-fit p-4">
           {footerLinks.map((link, index) => (
-            <Link key={index} href={link.href}>
+            <Link key={index} href={link.href} className="cursor-pointer">
               {link.name}
             </Link>
           ))}

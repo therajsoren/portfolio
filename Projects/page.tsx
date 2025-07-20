@@ -1,13 +1,24 @@
+import CardProjects from "@/components/CardProjects";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 const Projects = () => {
   return (
-    <div className="mt-[2rem] mb-10">
+    <div className="mt-[2rem] mb-10" id="projects">
       <div className="mb-[1rem]">
         <h1 className="text-4xl font-black tracking-tighter">Projects</h1>
-        <p className="h-1 bg-blue-400 w-1/3 mx-auto p-1"></p>
       </div>
-      <div className="max-w-7xl mx-auto">
-        <p>Coming soon...</p>
-      </div>
+      <h1 className="text-2xl max-w-3xl mx-auto tracking-tight">
+        Check outs my projects
+        <p className="h-0.5 w-1/3 mx-auto relative">
+          <BorderBeam />
+        </p>
+      </h1>
+      <CardProjects />
+      <Link href="https://github.com/therajsoren" target="_blank">
+        <Button className="text-lg cursor-pointer">View all projects</Button>
+      </Link>
     </div>
   );
 };

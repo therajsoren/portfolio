@@ -8,11 +8,11 @@ const Contact = () => {
     <div>
       <div className="mt-[4rem">
         <h1 className="text-4xl font-black tracking-tighter">Contact me!</h1>
-        <p className="h-1 bg-blue-400 w-1/3 mx-auto p-1"></p>
+        <p className="h-1 bg-gradient-to-t from-white to-green-400 w-1/3 mx-auto p-1"></p>
       </div>
       <div className="mt-[1rem]">
         <h1 className="text-2xl font-black">Get in touch!</h1>
-        <div className="flex justify-between max-w-xl mx-auto space-x-3 mt-8">
+        <div className="flex justify-between max-w-xl mx-auto space-x-3 mt-8 p-4">
           <div className="w-full space-y-2 mr-3">
             <Label>Name</Label>
             <Input />
@@ -22,7 +22,7 @@ const Contact = () => {
             <Input />
           </div>
         </div>
-        <div className="max-w-xl mx-auto mt-8 space-y-3">
+        <div className="max-w-xl mx-auto space-y-3 p-4">
           <Label>Message</Label>
           <Textarea className="pb-20" placeholder="Type your message here..." />
         </div>

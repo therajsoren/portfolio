@@ -14,16 +14,14 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { ShineBorder } from "./magicui/shine-border";
 import { useTheme } from "next-themes";
+import { FormEvent, useState } from "react";
 const DrawerComponent = () => {
   const theme = useTheme();
 
   return (
     <Drawer>
       <DrawerTrigger>
-        <Button
-          variant="ghost"
-          className="border-2 rounded-4xl px-4 py-1 cursor-pointer"
-        >
+        <div className="border-2 rounded-4xl px-4 py-1 cursor-pointer flex items-center gap-2">
           <ShineBorder
             shineColor={theme.theme === "dark" ? "white" : "black"}
           />
@@ -32,7 +30,7 @@ const DrawerComponent = () => {
             <span className="relative h-3 w-3 rounded-full bg-green-500"></span>
           </span>
           Available for work
-        </Button>
+        </div>
       </DrawerTrigger>
       <DrawerContent className="container mx-auto flex justify-center items-center">
         <DrawerHeader>
@@ -57,12 +55,8 @@ const DrawerComponent = () => {
         </DrawerHeader>
         <DrawerFooter className="flex flex-row items-center justify-between min-w-xs mx-auto mb-[4rem] pt-[1rem]">
           <div className="grid grid-cols-2 w-full gap-3">
-            <Button>Submit</Button>
-            <DrawerClose>
-              <Button variant="outline" className="w-full">
-                Cancel
-              </Button>
-            </DrawerClose>
+            <Button type="submit">Submit</Button>
+            <DrawerClose>Cancel</DrawerClose>
           </div>
         </DrawerFooter>
       </DrawerContent>

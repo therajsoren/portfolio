@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { education } from "@/data";
 import Card from "@/components/Card";
-import { BorderBeam } from "@/components/magicui/border-beam";
 const Education = () => {
   return (
     <>
@@ -25,13 +24,6 @@ const Education = () => {
               <div className="border rounded-2xl px-2 py-1">{edu.year}</div>
             </div>
           ))}
-          <BorderBeam
-            duration={6}
-            delay={3}
-            size={400}
-            borderWidth={1}
-            className="scroll-hidden"
-          />
         </div>
       </Card>
     </>

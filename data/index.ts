@@ -1,6 +1,4 @@
 import { HomeIcon, ImageIcon } from "lucide-react";
-import { number } from "motion/react";
-import { ReactNode } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
@@ -44,13 +42,6 @@ export const navLinks: NavLink[] = [
   },
 ];
 
-interface Skill {
-  id: number;
-  name: string;
-  logo: string;
-  color: string;
-}
-
 interface EducationProps {
   id: number;
   image: string;
@@ -76,98 +67,205 @@ export const education: EducationProps[] = [
   },
 ];
 
+interface Skill {
+  id: number;
+  name: string;
+  logo: string;
+  color?: string;
+}
 export const skills: Skill[] = [
   {
     id: 1,
     name: "Javascript",
-    logo: "/assets/skills/javascript.svg",
-    color: "#F7DF1E",
+    logo: "/javascript.svg",
   },
   {
     id: 2,
     name: "Typescript",
-    logo: "/assets/skills/typescript.svg",
-    color: "#3178C6",
+    logo: "/typescript.svg",
   },
   {
     id: 3,
     name: "React",
-    logo: "/assets/skills/react.svg",
-    color: "#61DAFB",
+    logo: "/reactjs.svg",
   },
   {
     id: 4,
     name: "Next.js",
-    logo: "/assets/skills/nextjs.svg",
-    color: "#22e65c",
+    logo: "/nextjs.svg",
   },
   {
     id: 5,
     name: "TailwindCSS",
-    logo: "/assets/skills/tailwind.svg",
-    color: "#06B6D4",
+    logo: "/tailwind.svg",
   },
   {
     id: 6,
     name: "ShadcnUI",
-    logo: "/assets/skills/shadcn.svg",
-    color: "#c31a82",
+    logo: "/shadcn.svg",
   },
   {
     id: 7,
     name: "Vercel",
-    logo: "/assets/skills/vercel.svg",
-    color: "#e622d2",
+    logo: "/vercel.svg",
   },
   {
     id: 8,
     name: "Node.js",
-    logo: "/assets/skills/nodejs.svg",
-    color: "#339933",
+    logo: "/nodejs.svg",
   },
   {
     id: 9,
     name: "Express.js",
-    logo: "/assets/skills/express.svg",
-    color: "#086eef",
+    logo: "/expressjs.svg",
   },
   {
     id: 10,
     name: "MongoDB",
-    logo: "/assets/skills/mongodb.svg",
-    color: "#47A248",
+    logo: "/mongodb.svg",
   },
   {
     id: 11,
     name: "Postman",
-    logo: "/assets/skills/postman.svg",
-    color: "#60bdef",
+    logo: "/postman.svg",
   },
   {
     id: 12,
     name: "Git",
-    logo: "/assets/skills/git.svg",
-    color: "#F05032",
+    logo: "/git.svg",
   },
   {
     id: 13,
     name: "Github",
-    logo: "/assets/skills/github.svg",
-    color: "#e67614",
+    logo: "/github.svg",
   },
 ];
 
-export const footerLinks = [
+interface FooterLinksPorps {
+  name: string;
+  href: string;
+}
+
+export const footerLinks: FooterLinksPorps[] = [
   {
     name: "Home",
     href: "/",
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "#projects"
   },
   {
     name: "About",
-    href: "/about",
+    href: "#about",
+  },
+];
+
+interface TechProps {
+  icon: string;
+  name: string;
+}
+
+interface ProjectsProps {
+  id: number;
+  image: string;
+  label: string;
+  title: string;
+  link: string;
+  tech: TechProps[];
+}
+
+export const projects: ProjectsProps[] = [
+  {
+    id: 1,
+    image: "/portfolio.png",
+    label: "My personal portfolio website",
+    title: "Portfolio website",
+    link: "https://github.com/therajsoren/portfolio",
+    tech: [
+      {
+        icon: "/nextjs.svg",
+        name: "Next.js",
+      },
+      {
+        icon: "/tailwind.svg",
+        name: "TailwindCSS",
+      },
+      {
+        icon: "/shadcn.svg",
+        name: "ShadcnUI",
+      },
+      {
+        icon: "/typescript.svg",
+        name: "Typescript",
+      },
+      {
+        icon: "/reactjs.svg",
+        name: "React",
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    image: "/later.png",
+    title: "later.com ",
+    label: "Create a pixel perfect frontend clone of later.com",
+    link: "https://later-com-clone.vercel.app/",
+    tech: [
+      {
+        icon: "/nextjs.svg",
+        name: "Next.js",
+      },
+      {
+        icon: "/tailwind.svg",
+        name: "TailwindCSS",
+      },
+      {
+        icon: "/shadcn.svg",
+        name: "ShadcnUI",
+      },
+      {
+        icon: "/typescript.svg",
+        name: "Typescript",
+      },
+      {
+        icon: "/reactjs.svg",
+        name: "React",
+      },
+    ],
+  },
+  {
+    id: 3,
+    image: "/modern-saas.png",
+    title: "Modern Saas Landing Page",
+    label: "A modern saas landing page with responsive design",
+    link: "https://modern-saas-landing-page-nine.vercel.app/",
+    tech: [
+      {
+        icon: "/nextjs.svg",
+        name: "Next.js",
+      },
+      {
+        icon: "/tailwind.svg",
+        name: "TailwindCSS",
+      },
+      {
+        icon: "/shadcn.svg",
+        name: "ShadcnUI",
+      },
+      {
+        icon: "/typescript.svg",
+        name: "Typescript",
+      },
+      {
+        icon: "/framer-motion.svg",
+        name: "Framer Motion",
+      },
+      {
+        icon: "/reactjs.svg",
+        name: "React",
+      },
+    ],
   },
 ];

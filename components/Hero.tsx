@@ -7,7 +7,7 @@ import { BorderBeam } from "./magicui/border-beam";
 
 const Hero = () => {
   return (
-    <div className="h-[78vh] px-4 relative ">
+    <div className="h-[68vh] px-4 relative">
       <div className="relative inline-block">
         <DrawerComponent />
         <Arrow />

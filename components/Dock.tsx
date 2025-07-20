@@ -35,12 +35,10 @@ const Dock = ({ items }: { items: any[] }) => {
     <div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto flex h-full border items-end rounded-4xl px-4 py-2 gap-2 backdrop-blur-lg ring-1 shadow-lg ring-black/10"
+      className="mx-auto flex h-full border items-end rounded-4xl px-4 py-2 gap-2 backdrop-blur-lg ring-1 shadow-lg ring-black/10 dark:ring-white/10"
     >
       {items.map((item, index) => (
-        <>
-          <AppIcon mouseX={mouseX} item={item} />
-        </>
+        <AppIcon mouseX={mouseX} item={item} key={index} />
       ))}
     </div>
   );
@@ -68,14 +66,14 @@ const AppIcon = ({ mouseX, item }: { mouseX: MotionValue; item: any }) => {
           rel="noopener noreferrer"
           className="flex items-center justify-center h-full w-full cursor-pointer"
         >
-          <item.icon className="w-7 h-7" />
+          <item.icon />
         </Link>
       ) : (
         <button
           className="flex items-center justify-center h-full w-full cursor-pointer"
           onClick={item.onClick}
         >
-          <item.icon className="w-7 h-7" />
+          <item.icon />
         </button>
       )}
     </motion.div>
