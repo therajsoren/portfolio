@@ -7,15 +7,10 @@ import {
   useTransform,
   useSpring,
 } from "motion/react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import { useTheme } from "next-themes";
 
-import {forwardRef, useRef } from "react";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { useRef } from "react";
 import Link from "next/link";
 
 const DockHeader = () => {
@@ -28,11 +23,9 @@ const DockHeader = () => {
     },
   ];
   return (
-    <TooltipProvider>
-      <div className="fixed inset-x-0 h-16 flex justify-center bottom-8">
-        <Dock items={dockItems} />
-      </div>
-    </TooltipProvider>
+    <div className="fixed inset-x-0 h-16 flex justify-center bottom-8">
+      <Dock items={dockItems} />
+    </div>
   );
 };
 
@@ -45,14 +38,9 @@ const Dock = ({ items }: { items: any[] }) => {
       className="mx-auto flex h-full border items-end rounded-4xl px-4 py-2 gap-2 backdrop-blur-lg ring-1 shadow-lg ring-black/10"
     >
       {items.map((item, index) => (
-        <Tooltip key={index} delayDuration={0}>
-          <TooltipTrigger asChild>
-            <AppIcon mouseX={mouseX} item={item} />
-          </TooltipTrigger>
-          <TooltipContent className="text-center">
-            <p>{item.label}</p>
-          </TooltipContent>
-        </Tooltip>
+        <>
+          <AppIcon mouseX={mouseX} item={item} />
+        </>
       ))}
     </div>
   );
