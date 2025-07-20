@@ -1,4 +1,6 @@
-import { HomeIcon } from "lucide-react";
+import { HomeIcon, ImageIcon } from "lucide-react";
+import { number } from "motion/react";
+import { ReactNode } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
@@ -43,6 +45,31 @@ interface Skill {
   logo: string;
   color: string;
 }
+
+interface EducationProps {
+  id: number;
+  image: string;
+  school: string;
+  year: string;
+  description: string;
+}
+
+export const education: EducationProps[] = [
+  {
+    id: 1,
+    image: "/dav.jpeg",
+    school: "Dav Public School, Dhori",
+    year: "2013 - 2022",
+    description: "Metric & Intremediate",
+  },
+  {
+    id: 2,
+    image: "/bit.png",
+    school: "BIT Sindri",
+    year: "2022 - 2026",
+    description: "B.Tech, ECE",
+  },
+];
 
 export const skills: Skill[] = [
   {
