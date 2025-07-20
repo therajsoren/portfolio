@@ -6,7 +6,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
 
 interface NavLink {
-  icon: IconType;
+  id: number;
+  icon?: IconType;
   label: string;
   href: string;
   target?: string;
@@ -14,26 +15,30 @@ interface NavLink {
 
 export const navLinks: NavLink[] = [
   {
+    id: 1,
     icon: HomeIcon,
     label: "Home",
     href: "/",
     target: "_self",
   },
   {
+    id: 2,
     icon: FaGithub,
     label: "Github",
     href: "https://github.com/therajsoren",
     target: "_blank",
   },
   {
+    id: 3,
     icon: FaXTwitter,
     label: "Twitter",
     href: "https://twitter.com/therajsoren",
     target: "_blank",
   },
   {
+    id: 4,
     icon: FaLinkedin,
-    label: "linkedin",
+    label: "Linkedin",
     href: "https://www.linkedin.com/in/therajsoren/",
     target: "_blank",
   },
@@ -149,5 +154,20 @@ export const skills: Skill[] = [
     name: "Github",
     logo: "/assets/skills/github.svg",
     color: "#e67614",
+  },
+];
+
+export const footerLinks = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "About",
+    href: "/about",
   },
 ];

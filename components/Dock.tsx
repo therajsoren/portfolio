@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/tooltip";
 import { useTheme } from "next-themes";
 
-import { useRef } from "react";
+import {forwardRef, useRef } from "react";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import Link from "next/link";
 

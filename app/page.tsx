@@ -1,15 +1,20 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Education from "@/Education/page";
+import Projects from "@/Projects/page";
 import Skill from "@/skills/page";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <div className="max-w-5xl mx-auto text-center pt-[150px] md:pt-[200px] mb-30">
+      <div className="max-w-5xl mx-auto text-center pt-[150px] md:pt-[200px]">
         <Hero />
-        <Skill />
-        <Education />
+        <section className="grid grid-cols-1 md:grid-cols-2 h-fit w-fit">
+          <Skill />
+          <Education />
+        </section>
+        <Projects />
+        <Footer />
       </div>
     </div>
   );
