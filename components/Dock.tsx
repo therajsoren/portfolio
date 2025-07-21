@@ -11,7 +11,7 @@ import {
 
 import { useTheme } from "next-themes";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 type ActionItem = {
