@@ -62,7 +62,13 @@ const Dock = ({ items }: { items: DockItemType[] }) => {
 };
 export default DockHeader;
 
-const AppIcon = ({ mouseX, item }: { mouseX: MotionValue; item: any }) => {
+const AppIcon = ({
+  mouseX,
+  item,
+}: {
+  mouseX: MotionValue;
+  item: DockItemType;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -80,21 +86,21 @@ const AppIcon = ({ mouseX, item }: { mouseX: MotionValue; item: any }) => {
       style={{ width }}
       className="aspect-square rounded-full bg-gray-500/20 w-12 "
     >
-      {item.href ? (
+      {"href" in item && item.href ? (
         <Link
           href={item.href}
           target={item.target}
           rel="noopener noreferrer"
           className="flex items-center justify-center h-full w-full cursor-pointer"
         >
-          <item.icon />
+          {item.icon && <item.icon />}
         </Link>
       ) : (
         <button
           className="flex items-center justify-center h-full w-full cursor-pointer"
           onClick={item.onClick}
         >
-          <item.icon />
+          {item.icon && <item.icon />}
         </button>
       )}
     </motion.div>

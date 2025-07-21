@@ -9,6 +9,7 @@ export interface NavLink {
   label?: string;
   href: string;
   target?: string;
+  onClick?: ()=>void
 }
 
 export const navLinks: NavLink[] = [
