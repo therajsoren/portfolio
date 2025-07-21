@@ -3,10 +3,10 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
 
-interface NavLink {
+export interface NavLink {
   id: number;
   icon?: IconType;
-  label: string;
+  label?: string;
   href: string;
   target?: string;
 }

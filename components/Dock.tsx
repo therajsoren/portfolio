@@ -1,5 +1,5 @@
 "use client";
-import { navLinks } from "@/data";
+import { NavLink, navLinks } from "@/data";
 import { MoonIcon, SunIcon } from "lucide-react";
 import {
   motion,
@@ -11,8 +11,15 @@ import {
 
 import { useTheme } from "next-themes";
 
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+
+type ActionItem = {
+  icon: React.ElementType;
+  onClick: () => void;
+};
+
+type DockItemType = NavLink | ActionItem;
 
 const DockHeader = () => {
   const { theme, setTheme } = useTheme();
@@ -21,11 +28,11 @@ const DockHeader = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   if (!mounted) {
     return null;
   }
-  const dockItems = [
+  const dockItems: DockItemType[] = [
     ...navLinks,
     {
       icon: theme === "dark" ? SunIcon : MoonIcon,
@@ -39,7 +46,7 @@ const DockHeader = () => {
   );
 };
 
-const Dock = ({ items }: { items: any[] }) => {
+const Dock = ({ items }: { items: DockItemType[] }) => {
   const mouseX = useMotionValue(Infinity);
   return (
     <div
@@ -57,12 +64,16 @@ export default DockHeader;
 
 const AppIcon = ({ mouseX, item }: { mouseX: MotionValue; item: any }) => {
   const ref = useRef<HTMLDivElement>(null);
-  let distance = useTransform(mouseX, (val) => {
+  const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
   const widthSync = useTransform(distance, [-120, 0, 120], [44, 80, 44]);
-  const width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+  const width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
   return (
     <motion.div
       ref={ref}

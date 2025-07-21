@@ -77,10 +77,10 @@ export function HyperspaceBackground({
     const radians = Math.PI / 180;
  
     class Star {
-      state: StarState;
+      props: StarState;
  
       constructor() {
-        this.state = {
+        this.props = {
           alpha: 0,
           angle: 0,
           x: 0,
@@ -106,7 +106,7 @@ export function HyperspaceBackground({
               Math.random() * (canvas.width * 0.24)
             : Math.random() * (canvas.width * 0.25);
  
-        this.state = {
+        this.props = {
           alpha: Math.random(),
           angle: randomInRange(0, 360) * radians,
           x: Math.floor(vX * travelled) + canvas.width / 2,
@@ -128,7 +128,7 @@ export function HyperspaceBackground({
       context.fillRect(0, 0, canvas.width, canvas.height);
  
       for (const star of stars) {
-        const { x, y, size, vX, vY } = star.state;
+        const { x, y, size, vX, vY } = star.props;
  
         const newX = x + vX;
         const newY = y + vY;
@@ -141,20 +141,20 @@ export function HyperspaceBackground({
         ) {
           star.reset();
         } else {
-          star.state = {
-            ...star.state,
+          star.props = {
+            ...star.props,
             x: newX,
-            vX: star.state.vX * starSpeed,
+            vX: star.props.vX * starSpeed,
             y: newY,
-            vY: star.state.vY * starSpeed,
+            vY: star.props.vY * starSpeed,
             size: size * sizeIncrement,
           };
  
-          context.strokeStyle = `rgba(${r}, ${g}, ${b}, ${star.state.alpha})`;
+          context.strokeStyle = `rgba(${r}, ${g}, ${b}, ${star.props.alpha})`;
           context.lineWidth = size;
           context.beginPath();
           context.moveTo(x, y);
-          context.lineTo(star.state.x, star.state.y);
+          context.lineTo(star.props.x, star.props.y);
           context.stroke();
         }
       }
