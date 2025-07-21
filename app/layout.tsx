@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <ThemeProvider
           attribute="class"
@@ -38,7 +38,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Background />
-          {/* <HyperspaceBackground/> */}
           <Header />
           {children}
         </ThemeProvider>

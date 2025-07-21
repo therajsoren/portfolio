@@ -16,7 +16,7 @@ const CardProjects = () => {
               alt={project.label}
               width={500}
               height={500}
-              className="rounded-t-md hover:scale-105 transition-normal duration-300"
+              className="rounded-t-md w-full  object-cover hover:scale-105 transition-normal duration-300"
             />
           </Link>
           <h1 className="text-2xl mt-2 pt-2">{project.title}</h1>

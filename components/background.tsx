@@ -6,7 +6,7 @@ const Background = () => {
   const { theme } = useTheme();
 
   return (
-    <div>
+    <div className="overflow-hidden">
       {theme == "dark" ? (
         <HyperspaceBackground />
       ) : (
