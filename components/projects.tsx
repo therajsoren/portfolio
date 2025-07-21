@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Projects = () => {
   return (
-    <div className="mt-[2rem] mb-20" id="projects">
+    <div className="mt-[2rem] mb-20 max-w-7xl mx-auto" id="projects">
       <div className="mb-[1rem]">
         <h1 className="text-4xl font-black -tracking-tight">Projects</h1>
       </div>
@@ -17,7 +17,7 @@ const Projects = () => {
       </h1>
       <CardProjects />
       <Link href="https://github.com/therajsoren" target="_blank">
-        <Button className="text-lg cursor-pointer">View all projects</Button>
+        <Button className="md:text-lg text-sm cursor-pointer font-sans font-bold">View all projects</Button>
       </Link>
     </div>
   );

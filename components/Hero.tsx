@@ -8,7 +8,7 @@ import { driveLinks } from "@/data";
 
 const Hero = () => {
   return (
-    <div className="text-center lg:p-x-4 px-12 relative">
+    <div className="text-center lg:px-4 px-12 relative">
       <div className="relative inline-block">
         <DrawerComponent />
         <Arrow />

@@ -3,7 +3,7 @@ import { education } from "@/data";
 import Card from "@/components/Card";
 const Education = () => {
   return (
-    <>
+    <div className="w-full h-full">
       <Card heading="Education">
         <div className="grid grid-cols-1 md:p-4 p-0 rounded-md relative overflow-hidden">
           {education.map((edu) => (
@@ -11,22 +11,22 @@ const Education = () => {
               <div className="flex items-center">
                 <Image
                   src={edu.image}
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                   alt="dav logo"
-                  className="rounded-full object-cover md:w-14 md:h-14 w-6 h-6"
+                  className="rounded-4xl object-cover"
                 />
                 <div className="ml-2 text-left">
-                  <h1 className="md:text-base text-[13px] leading-normal">{edu.school}</h1>
+                  <h1 className="md:text-base text-sm leading-normal">{edu.school}</h1>
                   <p className="text-xs font-sans font-extrabold italic">{edu.description}</p>
                 </div>
               </div>
-              <div className="border rounded-2xl md:text-sm text-[10px] px-2 py-1 whitespace-nowrap">{edu.year}</div>
+              <div className="border rounded-2xl text-sm  px-2 py-1 whitespace-nowrap">{edu.year}</div>
             </div>
           ))}
         </div>
       </Card>
-    </>
+    </div>
   );
 };
 export default Education;

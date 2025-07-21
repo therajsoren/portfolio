@@ -1,8 +1,8 @@
 const AboutMe = () => {
   return (
-    <div className="" id="about">
+    <div id="about">
       <div className="w-full h-full lg:text-left p-4">
-        <h1 className="text-4xl -tracking-wider font-black pb-9">About Me</h1>
+        <h1 className="text-4xl -tracking-wider font-black pb-14">About Me</h1>
         <p className="text-base pt-4 leading-normal tracking-tighter font-semibold text-slate-400/50">
           Hey, I'm Raj Soren, a passionate Full Stack Developer.
           <span className="inline lg:block">

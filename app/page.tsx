@@ -8,12 +8,12 @@ import Skill from "@/skills/page";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto font-mono">
+    <div className="font-mono">
       <header className="min-h-screen w-full flex items-center justify-center ">
         <Hero />
       </header>
 
-      <main className="flex lg:justify-between lg:items-center gap-4 lg:flex-row flex-col p-16 md:p-4 text-center mb-2">
+      <main className="flex lg:justify-between lg:items-center gap-4 lg:flex-row flex-col p-4 text-center mb-2 max-w-7xl mx-auto">
         <AboutMe />
         <Education />
       </main>

@@ -62,7 +62,7 @@ const MobileNav = ({ items }: NavProps) => {
   return (
     <div className="mx-auto flex h-full items-center justify-center gap-2 rounded-full border bg-white/50 px-4 py-2 backdrop-blur-md ring-1 shadow-lg ring-black/10 dark:border-white/10 dark:bg-black/50">
       {items.map((item, index) => (
-        <div key={index} className="aspect-square w-12 rounded-full">
+        <div key={index} className="aspect-square w-10 rounded-full">
           {"href" in item && item.href ? (
             <Link
               href={item.href}

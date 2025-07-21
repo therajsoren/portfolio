@@ -8,7 +8,7 @@ const Card = ({
   heading: string;
 }) => {
   return (
-    <div className="w-full pt-8">
+    <div className="w-full pt-16 overflow-hidden">
       <div className="mb-[1rem] text-center">
         <div className="relative inline-block">
           <h1 className="text-4xl font-black tracking-tighter">{heading}</h1>

@@ -17,7 +17,7 @@ const Skill = () => {
   return (
     <>
       <Card heading="Skills">
-        <div className="flex gap-2 p-6 flex-wrap items-center justify-center h-fit min-w-[100px] rounded-md relative overflow-hidden">
+        <div className="flex gap-2 p-6 flex-wrap items-center justify-center h-fit min-w-[100px] rounded-md relative overflow-hidden max-w-7xl mx-auto">
           {skills.map((skill) => {
             const hasLightThemeIcon =
               theme === "light" && lightThemeIcons[skill.name];

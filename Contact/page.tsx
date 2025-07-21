@@ -67,15 +67,15 @@ const Contact = () => {
         onClose={() => setShowToast(false)}
         className="z-[100]"
       />
-      <div className="p-16 sm:px-24 lg:p-0">
-        <div className="mt-[4rem">
-          <h1 className="text-4xl font-black tracking-tighter">Contact me!</h1>
-          <p className="h-1 bg-gradient-to-t from-white to-green-400 w-1/3 mx-auto p-1"></p>
+      <div className="">
+        <div className="mt-[4rem] relative inline-block">
+          <h1 className="md:text-4xl text-2xl font-black tracking-tighter">Contact me!</h1>
+          <p className="h-1 absolute w-full bg-gradient-to-t from-white to-green-400 left-0 bottom-0 mx-auto"></p>
         </div>
         <div className="mt-[1rem]">
-          <h1 className="text-2xl font-black">Get in touch!</h1>
+          <h1 className="md:text-2xl text-lg font-black">Get in touch!</h1>
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-between max-w-xl mx-auto space-x-3 mt-8 p-4">
+            <div className="flex justify-between max-w-xl mx-auto space-x-3 mt-8 md:p-4 px-6 pt-6">
               <div className="w-full space-y-2 mr-3">
                 <Label>Name</Label>
                 <Input
@@ -97,10 +97,10 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="max-w-xl mx-auto space-y-3 p-4">
+            <div className="max-w-xl mx-auto space-y-3 md:p-4 p-6">
               <Label>Message</Label>
               <Textarea
-                className="pb-20"
+                className="md:pb-20 pb-10"
                 id="message"
                 value={message}
                 required

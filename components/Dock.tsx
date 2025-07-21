@@ -84,7 +84,7 @@ const AppIcon = ({
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square rounded-full bg-gray-500/20 w-12 "
+      className="aspect-square rounded-full bg-gray-500/20 w-10 "
     >
       {"href" in item && item.href ? (
         <Link
