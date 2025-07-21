@@ -150,7 +150,7 @@ interface FooterLinksPorps {
 export const footerLinks: FooterLinksPorps[] = [
   {
     name: "Home",
-    href: "/",
+    href: "#home",
   },
   {
     name: "Projects",
