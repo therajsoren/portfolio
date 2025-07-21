@@ -4,6 +4,7 @@ import DrawerComponent from "./Drawer";
 import Link from "next/link";
 import Arrow from "./Arrow";
 import { BorderBeam } from "./magicui/border-beam";
+import { driveLinks } from "@/data";
 
 const Hero = () => {
   return (
@@ -27,7 +28,7 @@ const Hero = () => {
           I enjoy building modern and efficient web applications using Next.js,
           React, and Tailwind CSS.
         </p>
-          <Link href={"/resume.pdf"} target="_blank" className="p-px">
+          <Link href={driveLinks} target="_blank" className="p-px">
             <Button className="h-10 px-4 rounded-full font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 hover:text-zinc-200 cursor-pointer hover:dark:bg-zinc-600">
               Download my resume
               <BorderBeam/>

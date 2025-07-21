@@ -9,7 +9,7 @@ export interface NavLink {
   label?: string;
   href: string;
   target?: string;
-  onClick?: ()=>void
+  onClick?: () => void;
 }
 
 export const navLinks: NavLink[] = [
@@ -68,6 +68,8 @@ export const education: EducationProps[] = [
   },
 ];
 
+export const driveLinks =
+"https://drive.google.com/file/d/1bOViHgMQthb8adbCFFWD8tJQCdCVPukv/view?usp=sharing"
 interface Skill {
   id: number;
   name: string;
@@ -154,7 +156,7 @@ export const footerLinks: FooterLinksPorps[] = [
   },
   {
     name: "Projects",
-    href: "#projects"
+    href: "#projects",
   },
   {
     name: "About",
