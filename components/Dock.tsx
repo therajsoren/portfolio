@@ -40,7 +40,7 @@ const DockHeader = () => {
 };
 
 const Dock = ({ items }: { items: any[] }) => {
-  let mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Infinity);
   return (
     <div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -56,18 +56,18 @@ const Dock = ({ items }: { items: any[] }) => {
 export default DockHeader;
 
 const AppIcon = ({ mouseX, item }: { mouseX: MotionValue; item: any }) => {
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   let distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
-  let widthSync = useTransform(distance, [-120, 0, 120], [44, 80, 44]);
-  let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+  const widthSync = useTransform(distance, [-120, 0, 120], [44, 80, 44]);
+  const width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
   return (
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square rounded-full bg-gray-500/20 w-11"
+      className="aspect-square rounded-full bg-gray-500/20 w-12 "
     >
       {item.href ? (
         <Link

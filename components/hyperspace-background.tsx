@@ -44,7 +44,7 @@ export function HyperspaceBackground({
   className,
   ...props
 }: HyperspaceBackgroundProps) {
-  const canvasRef = React.useRef<HTMLCanvasElemdent | null>(null);
+  const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
   const [r, g, b] = hexToRgb(starColor);
  
   React.useEffect(() => {
