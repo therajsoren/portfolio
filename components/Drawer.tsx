@@ -16,11 +16,13 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { ShineBorder } from "./magicui/shine-border";
 import { useTheme } from "next-themes";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Toast, { ToastType } from "@/components/toast";
 
 const DrawerComponent = () => {
   const theme = useTheme();
+  const [mounted, setMounted] = useState(false);
+
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -33,6 +35,10 @@ const DrawerComponent = () => {
     setToastType(type);
     setShowToast(true);
   };
+
+  useEffect(() => setMounted(true), []);
+
+  if(!mounted) return null;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
