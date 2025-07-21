@@ -8,21 +8,23 @@ import Skill from "@/skills/page";
 
 export default function Home() {
   return (
-    <div>
-      <div
-        className="max-w-5xl mx-auto text-center pt-[150px] md:pt-[200px]"
-        id="home"
-      >
+    <div className="max-w-5xl mx-auto font-mono">
+      <header className="min-h-screen w-full flex items-center justify-center ">
         <Hero />
+      </header>
+
+      <main className="flex lg:justify-between lg:items-center gap-4 lg:flex-row flex-col p-16 md:p-4 text-center mb-2">
         <AboutMe />
-        <section className="grid grid-cols-1 md:grid-cols-2 h-fit w-fit">
-          <Skill />
-          <Education />
-        </section>
+        <Education />
+      </main>
+      <Skill />
+      <section className="text-center">
         <Projects />
         <Contact />
+      </section>
+      <footer className="text-center">
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 }

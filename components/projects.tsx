@@ -7,9 +7,9 @@ const Projects = () => {
   return (
     <div className="mt-[2rem] mb-20" id="projects">
       <div className="mb-[1rem]">
-        <h1 className="text-4xl font-black tracking-tighter">Projects</h1>
+        <h1 className="text-4xl font-black -tracking-tight">Projects</h1>
       </div>
-      <h1 className="text-2xl max-w-3xl mx-auto tracking-tight">
+      <h1 className="text-2xl max-w-3xl mx-auto -tracking-wider">
         Check outs my projects
         <div className="h-0.5 w-1/3 mx-auto relative">
           <BorderBeam />

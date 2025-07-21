@@ -17,7 +17,7 @@ const Skill = () => {
   return (
     <>
       <Card heading="Skills">
-        <div className="flex gap-2 p-6 flex-wrap items-center justify-center border h-fit min-w-[100px] rounded-md relative overflow-hidden">
+        <div className="flex gap-2 p-6 flex-wrap items-center justify-center h-fit min-w-[100px] rounded-md relative overflow-hidden">
           {skills.map((skill) => {
             const hasLightThemeIcon =
               theme === "light" && lightThemeIcons[skill.name];
@@ -28,7 +28,7 @@ const Skill = () => {
             return (
               <div
                 key={skill.id}
-                className="border rounded-4xl text-sm font-light px-4 py-2 border-t-blue-300/50 pt-px flex cursor-pointer items-center gap-2 justify-center"
+                className="border rounded-4xl md:text-sm text-xs font-light px-4 py-2 border-t-blue-300/50 pt-px flex cursor-pointer items-center gap-2 justify-center"
               >
                 <Image src={iconSrc} alt={skill.name} width={16} height={16} />
                 {skill.name}

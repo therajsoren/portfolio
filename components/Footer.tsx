@@ -5,8 +5,8 @@ import { BorderBeam } from "./magicui/border-beam";
 const Footer = () => {
   const currenYear = new Date().getFullYear();
   return (
-    <div className="mt-4 mb-4 p-2">
-      <h1 className="h-0.5 bg-gray-800 relative">
+    <div className="mt-4 mb-4 md:p-2 p-8">
+      <h1 className="h-0.5 bg-gray-800 relative w-full mx-auto lg:w-full sm:w-xl">
         <BorderBeam size={400}/ >
       </h1>
       <div className="flex pt-4 pb-6 justify-around items-center">

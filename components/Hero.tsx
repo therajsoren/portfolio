@@ -8,13 +8,13 @@ import { driveLinks } from "@/data";
 
 const Hero = () => {
   return (
-    <div className="h-[68vh] px-4 relative">
+    <div className="text-center lg:p-x-4 px-12 relative">
       <div className="relative inline-block">
         <DrawerComponent />
         <Arrow />
       </div>
       <div className="space-y-4 pt-[1rem] p-1">
-        <h1 className="text-6xl font-black -tracking-wider ">
+        <h1 className="md:text-6xl text-4xl font-black -tracking-wider lg:whitespace-nowrap font-sans">
           A{" "}
           <span className="bg-gradient-to-b from-red-500 to-orange-300 bg-clip-text text-transparent">
             Full Stack{" "}
@@ -24,7 +24,7 @@ const Hero = () => {
             India{" "}
           </span>
         </h1>
-        <p className="md:text-2xl text-lg font-semibold text-slate-400/50 -tracking-wide mb-[80px]">
+        <p className="md:text-xl text-lg text-neutral-900 dark:text-neutral-200 -tracking-wide mb-[80px]">
           I enjoy building modern and efficient web applications using Next.js,
           React, and Tailwind CSS.
         </p>

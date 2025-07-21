@@ -1,7 +1,7 @@
 const Arrow = () => {
   return (
     <div className="absolute -top-20 -left-10  md:-left-10 flex flex-col items-center">
-      <span className="text-base dark:text-slate-400 text-slate-900 -rotate-15 -ml-8 animate-bounce">Click me!</span>
+      <span className="text-base dark:text-slate-400 text-slate-900 -rotate-15 -ml-8 animate-bounce font-mono">Click me!</span>
       <svg
         width="80"
         height="80"

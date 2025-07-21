@@ -78,7 +78,7 @@ const DrawerComponent = () => {
       />
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline" className="relative">
+          <Button variant="outline" className="relative font-mono cursor-pointer">
             <ShineBorder
               className="absolute"
               shineColor={theme.theme === "dark" ? "white" : "black"}
@@ -91,11 +91,11 @@ const DrawerComponent = () => {
           </Button>
         </DrawerTrigger>
         <DrawerContent>
-          <div className="container mx-auto w-full max-w-md">
-            <form onSubmit={handleSubmit}>
+          {/* <div className="container mx-auto w-full max-w-md font-mono"> */}
+            <form onSubmit={handleSubmit} className="mx-auto max-w-md font-mono">
               <DrawerHeader>
-                <DrawerTitle>Contact me</DrawerTitle>
-                <DrawerDescription>
+                <DrawerTitle className="text-center">Contact me</DrawerTitle>
+                <DrawerDescription className="text-left">
                   If you have any questions, feel free to reach out.
                 </DrawerDescription>
               </DrawerHeader>
@@ -139,7 +139,7 @@ const DrawerComponent = () => {
                 </DrawerClose>
               </DrawerFooter>
             </form>
-          </div>
+          {/* </div> */}
         </DrawerContent>
       </Drawer>
     </>

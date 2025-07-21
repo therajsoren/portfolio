@@ -8,12 +8,14 @@ const Card = ({
   heading: string;
 }) => {
   return (
-    <div>
-      <div className="mb-[1rem]">
-        <h1 className="text-4xl font-black tracking-tighter">{heading}</h1>
-        <h2 className="h-0.5 relative w-1/4 mx-auto">
-          <BorderBeam />
-        </h2>
+    <div className="w-full pt-8">
+      <div className="mb-[1rem] text-center">
+        <div className="relative inline-block">
+          <h1 className="text-4xl font-black tracking-tighter">{heading}</h1>
+          <h2 className="h-0.8 absolute w-full left-0 bottom-0 mx-auto">
+            <BorderBeam />
+          </h2>
+        </div>
       </div>
       <div className="p-2">{children}</div>
     </div>

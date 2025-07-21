@@ -67,7 +67,7 @@ const Contact = () => {
         onClose={() => setShowToast(false)}
         className="z-[100]"
       />
-      <div>
+      <div className="p-16 sm:px-24 lg:p-0">
         <div className="mt-[4rem">
           <h1 className="text-4xl font-black tracking-tighter">Contact me!</h1>
           <p className="h-1 bg-gradient-to-t from-white to-green-400 w-1/3 mx-auto p-1"></p>
