@@ -10,11 +10,12 @@ export async function POST(req: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
       to: "7rajkumarsoren@gmail.com",
+      replyTo: email,
       subject: "${subject}",
-      html: `<p>You have a new message from your website contact form:</p>
+      html: `<h2>New Message Via Contact Form</h2>
              <p><strong>From:</strong> ${email}</p>
              <p><strong>Name:</strong> ${name}</p>
-             <p><strong>Message:</strong></p>
+             <h3><strong>Message:</strong></h3>
              <p>${message}</p>`,
     });
     if (error) {
