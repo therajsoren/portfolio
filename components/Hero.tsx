@@ -1,41 +1,98 @@
 "use client";
-import { Button } from "./ui/button";
-import DrawerComponent from "./Drawer";
-import Link from "next/link";
-import Arrow from "./Arrow";
-import { BorderBeam } from "./magicui/border-beam";
-import { driveLinks } from "@/data";
+import { motion } from "motion/react";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import ScrollIndicator from "./ScrollIndicator";
+import { FloatingSkill, floatingSkills } from "./FloatingSkill";
 
 const Hero = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <div className="text-center lg:px-4 px-12 relative">
-      <div className="relative inline-block">
-        <DrawerComponent />
-        <Arrow />
-      </div>
-      <div className="space-y-4 pt-[1rem] p-1">
-        <h1 className="md:text-6xl text-4xl font-black -tracking-wider lg:whitespace-nowrap font-sans">
-          A{" "}
-          <span className="bg-gradient-to-b from-red-500 to-orange-300 bg-clip-text text-transparent">
-            Full Stack{" "}
+    <section
+      className={`relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-0 mt-0 transition-colors duration-500 ${
+        isDark ? "bg-black" : "bg-gradient-to-br from-gray-50 to-gray-100"
+      }`}
+    >
+      {/* Floating Skill Icons */}
+      {floatingSkills.map((skill, index) => (
+        <FloatingSkill
+          key={index}
+          src={skill.src}
+          x={skill.x}
+          y={skill.y}
+          rotate={skill.rotate}
+          size={skill.size}
+          index={index}
+        />
+      ))}
+
+      <div
+        className={`absolute inset-0 pointer-events-none ${
+          isDark
+            ? "bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.8)_100%)]"
+            : "bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(255,255,255,0.4)_50%,rgba(255,255,255,0.8)_100%)]"
+        }`}
+      />
+
+      <div className="relative z-10 text-center px-4">
+        <motion.p
+          className={`text-lg md:text-xl mb-4 font-lato tracking-wider ${
+            isDark ? "text-white/60" : "text-gray-500"
+          }`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          Hey, I&apos;m
+        </motion.p>
+        <motion.h1
+          className={`text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6 font-montserrat ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          RAJ SOREN
+        </motion.h1>
+        <motion.div
+          className={`flex flex-col md:flex-row items-center justify-center gap-3 ${
+            isDark ? "text-white/80" : "text-gray-700"
+          }`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <span className="text-lg md:text-xl font-lato">I craft</span>
+          <span
+            className={`px-5 py-2 border rounded-full text-lg md:text-xl font-rubik backdrop-blur-sm ${
+              isDark
+                ? "border-white/40 bg-white/5"
+                : "border-gray-300 bg-white/50"
+            }`}
+          >
+            ✨ digital experiences
           </span>
-          developer based in{" "}
-          <span className="dark:bg-[linear-gradient(to_bottom,#e76621_55%,#f6faf9_50%,#f6faf9_66.6%,#7be721_30%)] dark:bg-clip-text dark:text-transparent whitespace-nowrap">
-            India{" "}
-          </span>
-        </h1>
-        <p className="md:text-xl text-lg text-neutral-900 dark:text-neutral-200 -tracking-wide mb-[80px]">
-          I enjoy building modern and efficient web applications using Next.js,
-          React, and Tailwind CSS.
-        </p>
-          <Link href={driveLinks} target="_blank" className="p-px">
-            <Button className="h-10 px-4 rounded-full font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 hover:text-zinc-200 cursor-pointer hover:dark:bg-zinc-600">
-              Download my resume
-              <BorderBeam/>
-            </Button>
-          </Link>
+          <span className="text-lg md:text-xl font-lato">that inspire</span>
+        </motion.div>
+        <motion.p
+          className={`text-base md:text-lg mt-6 max-w-md mx-auto font-lato ${
+            isDark ? "text-white/50" : "text-gray-500"
+          }`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          Full Stack Developer • React • Next.js • Node.js
+        </motion.p>
       </div>
-    </div>
+
+      {/* Scroll indicator */}
+      <ScrollIndicator />
+    </section>
   );
 };
+
 export default Hero;

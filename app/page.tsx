@@ -1,28 +1,42 @@
-import AboutMe from "@/About/page";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import Contact from "@/Contact/page";
-import Education from "@/components/education";
 import Projects from "@/components/projects";
 import Skill from "@/skills/page";
+import CosmosHero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div className="font-mono">
-      <header className="min-h-screen w-full flex items-center justify-center ">
-        <Hero />
-      </header>
+    <div className="font-rubik">
+      {/* Hero Section */}
+      <section id="hero" data-scroll-section>
+        <CosmosHero />
+      </section>
 
-      <main className="flex lg:justify-between lg:items-center gap-4 lg:flex-row flex-col p-4 text-center mb-2 max-w-7xl mx-auto">
-        <AboutMe />
-        <Education />
-      </main>
-      <Skill />
-      <section className="text-center">
+      {/* Skills Section */}
+      <section id="skills" data-scroll-section className="scroll-mt-20">
+        <Skill />
+      </section>
+
+      {/* Projects Section */}
+      <section
+        id="projects"
+        data-scroll-section
+        className="scroll-mt-20 text-center"
+      >
         <Projects />
+      </section>
+
+      {/* Contact Section */}
+      <section
+        id="contact"
+        data-scroll-section
+        className="scroll-mt-20 text-center"
+      >
         <Contact />
       </section>
-      <footer className="text-center">
+
+      {/* Footer */}
+      <footer data-scroll-section>
         <Footer />
       </footer>
     </div>

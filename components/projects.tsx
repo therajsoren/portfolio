@@ -1,25 +1,63 @@
+"use client";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import { useTheme } from "next-themes";
 import CardProjects from "@/components/CardProjects";
-import { BorderBeam } from "@/components/magicui/border-beam";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <div className="mt-[2rem] mb-20 max-w-7xl mx-auto" id="projects">
-      <div className="mb-[1rem]">
-        <h1 className="text-4xl font-black -tracking-tight">Projects</h1>
-      </div>
-      <h1 className="text-2xl max-w-3xl mx-auto -tracking-wider">
-        Check outs my projects
-        <div className="h-0.5 w-1/3 mx-auto relative">
-          <BorderBeam />
-        </div>
-      </h1>
+    <div ref={ref} className="py-20 max-w-7xl mx-auto px-4" id="projects">
+      {/* Header */}
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <h1
+          className={`text-5xl font-black tracking-tighter mb-3 font-montserrat ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}
+        >
+          Featured Projects
+        </h1>
+        <p
+          className={`text-lg font-inter font-bold tracking-tight max-w-md mx-auto ${
+            isDark ? "text-white/50" : "text-gray-600"
+          }`}
+        >
+          A showcase of my recent work and experiments
+        </p>
+      </motion.div>
+
       <CardProjects />
-      <Link href="https://github.com/therajsoren" target="_blank">
-        <Button className="md:text-lg text-sm cursor-pointer font-sans font-bold">View all projects</Button>
-      </Link>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="flex justify-center mt-10"
+      >
+        <Link href="https://github.com/therajsoren" target="_blank">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="group px-6 py-3 rounded-full bg-[#c8ff00] text-black font-medium text-sm flex items-center gap-2 hover:bg-[#b8ef00] transition-all duration-300 cursor-pointer"
+          >
+            View all projects
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </motion.button>
+        </Link>
+      </motion.div>
     </div>
   );
 };
+
 export default Projects;

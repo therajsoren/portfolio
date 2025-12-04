@@ -1,20 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rubik, Montserrat, Lato, Syne, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/Header";
-import Background from "@/components/background";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import ThemeTransition from "@/components/ThemeTransition";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const rubik = Rubik({
+  variable: "--font-rubik",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +48,12 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "Web Developer",
   ],
+  icons: {
+    icon: "/icon.svg",
+  },
 };
+
+import Header from "@/components/Header";
 
 export default function RootLayout({
   children,
@@ -38,17 +63,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${rubik.variable} ${montserrat.variable} ${lato.variable} ${syne.variable} ${inter.variable} antialiased overflow-x-hidden font-rubik`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange
+          disableTransitionOnChange={false}
         >
-          <Background />
+          <ThemeTransition />
           <Header />
-          {children}
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>
