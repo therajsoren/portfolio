@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import CardProjects from "@/components/CardProjects";
 import Link from "next/link";
@@ -9,8 +9,14 @@ import { ArrowUpRight } from "lucide-react";
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
     <div ref={ref} className="py-20 max-w-7xl mx-auto px-4" id="projects">
