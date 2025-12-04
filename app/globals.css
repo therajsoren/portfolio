@@ -137,18 +137,3 @@
 html {
   scroll-behavior: smooth;
 }
-
-/* Theme transition animation */
-@keyframes theme-sweep {
-  0% {
-    clip-path: circle(0% at calc(100% - 80px) 30px);
-  }
-
-  100% {
-    clip-path: circle(150% at calc(100% - 80px) 30px);
-  }
-}
-
-.animate-theme-sweep {
-  animation: theme-sweep 0.5s ease-out forwards;
-}

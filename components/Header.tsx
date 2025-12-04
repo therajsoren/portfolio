@@ -7,7 +7,7 @@ import { Moon, Sun } from "lucide-react";
 import { driveLinks } from "@/data";
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -15,10 +15,6 @@ const Header = () => {
   }, []);
 
   if (!mounted) return null;
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
 
   return (
     <motion.nav
@@ -29,41 +25,67 @@ const Header = () => {
     >
       <div className="flex items-center gap-2 p-1.5 bg-black/80 backdrop-blur-xl rounded-full border border-white/10 shadow-lg">
         {/* Logo */}
-        <Link
-          href="#hero"
+        <button
+          onClick={() => {
+            window.dispatchEvent(
+              new CustomEvent("scrollToSection", { detail: "hero" })
+            );
+          }}
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors"
         >
           <span className="font-montserrat font-bold text-2xl text-white leading-none pt-1">
             R
           </span>
-        </Link>
+        </button>
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center px-4 gap-6">
-          <Link
-            href="#projects"
+          <button
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("scrollToSection", { detail: "projects" })
+              );
+            }}
             className="text-sm font-medium text-white/70 hover:text-white transition-colors font-lato"
           >
             Projects
-          </Link>
-          <Link
-            href="#skills"
+          </button>
+          <button
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("scrollToSection", { detail: "skills" })
+              );
+            }}
             className="text-sm font-medium text-white/70 hover:text-white transition-colors font-lato"
           >
             Skills
-          </Link>
-          <Link
-            href="#contact"
+          </button>
+          <button
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("scrollToSection", { detail: "contact" })
+              );
+            }}
             className="text-sm font-medium text-white/70 hover:text-white transition-colors font-lato"
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         <div className="w-px h-4 bg-white/10 mx-1 hidden md:block" />
 
         <button
-          onClick={toggleTheme}
+          onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+
+            window.dispatchEvent(
+              new CustomEvent("theme-transition-trigger", {
+                detail: { x, y, theme: theme === "dark" ? "light" : "dark" },
+              })
+            );
+          }}
           className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden group"
           aria-label="Toggle theme"
         >

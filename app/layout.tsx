@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+
 import ThemeTransition from "@/components/ThemeTransition";
 
 const rubik = Rubik({
@@ -68,7 +69,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange={false}
         >
           <ThemeTransition />

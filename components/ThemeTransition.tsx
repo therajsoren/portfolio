@@ -1,51 +1,72 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const ThemeTransition = () => {
-  const { resolvedTheme } = useTheme();
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [overlayColor, setOverlayColor] = useState("#0a0a0a");
-  const prevTheme = useRef<string | undefined>(undefined);
-  const isFirstRender = useRef(true);
+  const { setTheme } = useTheme();
+  const [isActive, setIsActive] = useState(false);
+  const [config, setConfig] = useState({
+    oldTheme: "",
+    newTheme: "",
+  });
+  const themeChangeTriggered = useRef(false);
 
   useEffect(() => {
-    // Skip the first render
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      prevTheme.current = resolvedTheme;
-      return;
-    }
+    const handleTransition = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      const { theme } = customEvent.detail;
 
-    // Only animate if theme actually changed
-    if (
-      prevTheme.current !== resolvedTheme &&
-      prevTheme.current !== undefined
-    ) {
-      // Set the color to the NEW theme color
-      setOverlayColor(resolvedTheme === "dark" ? "#0a0a0a" : "#f9fafb");
-      setShowOverlay(true);
+      setConfig({
+        oldTheme: theme === "dark" ? "light" : "dark",
+        newTheme: theme,
+      });
+      themeChangeTriggered.current = false;
+      setIsActive(true);
+    };
 
+    window.addEventListener("theme-transition-trigger", handleTransition);
+    return () =>
+      window.removeEventListener("theme-transition-trigger", handleTransition);
+  }, []);
+
+  // Change theme after a delay to let the overlay start covering
+  useEffect(() => {
+    if (isActive && !themeChangeTriggered.current) {
       const timer = setTimeout(() => {
-        setShowOverlay(false);
-      }, 600);
-
-      prevTheme.current = resolvedTheme;
+        setTheme(config.newTheme);
+        themeChangeTriggered.current = true;
+      }, 100); // Small delay so overlay starts expanding first
       return () => clearTimeout(timer);
     }
-
-    prevTheme.current = resolvedTheme;
-  }, [resolvedTheme]);
-
-  if (!showOverlay) return null;
+  }, [isActive, config.newTheme, setTheme]);
 
   return (
-    <div
-      className="fixed inset-0 z-[9999] pointer-events-none animate-theme-sweep"
-      style={{
-        backgroundColor: overlayColor,
-      }}
-    />
+    <AnimatePresence>
+      {isActive && (
+        <motion.div
+          className="fixed inset-0 z-[9999] pointer-events-none"
+          style={{
+            backgroundColor: config.newTheme === "dark" ? "#0a0a0a" : "#f9fafb",
+          }}
+          initial={{
+            clipPath: "circle(0% at 100% 0%)",
+          }}
+          animate={{
+            clipPath: "circle(150% at 100% 0%)",
+          }}
+          exit={{
+            opacity: 0,
+            transition: { duration: 0.2 },
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+          onAnimationComplete={() => setIsActive(false)}
+        />
+      )}
+    </AnimatePresence>
   );
 };
 

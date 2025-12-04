@@ -1,15 +1,16 @@
+"use client";
 import Footer from "@/components/Footer";
 import Contact from "@/Contact/page";
 import Projects from "@/components/projects";
 import Skill from "@/skills/page";
-import CosmosHero from "@/components/Hero";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <div className="font-rubik">
       {/* Hero Section */}
       <section id="hero" data-scroll-section>
-        <CosmosHero />
+        <Hero />
       </section>
 
       {/* Skills Section */}
