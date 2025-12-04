@@ -9,7 +9,7 @@ export const lightThemeIcons: { [key: string]: string } = {
   "Express.js": "/expressjs.svg",
   Vercel: "/vercel.svg",
   Github: "/github_light.svg",
-  "Next.js": "/Next.svg",
+  "Next.js": "/next.svg",
 };
 
 interface Skill {

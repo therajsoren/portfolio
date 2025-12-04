@@ -7,7 +7,7 @@ import { Moon, Sun } from "lucide-react";
 import { driveLinks } from "@/data";
 
 const Header = () => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -15,6 +15,10 @@ const Header = () => {
   }, []);
 
   if (!mounted) return null;
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <motion.nav
@@ -75,17 +79,7 @@ const Header = () => {
         <div className="w-px h-4 bg-white/10 mx-1 hidden md:block" />
 
         <button
-          onClick={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-
-            window.dispatchEvent(
-              new CustomEvent("theme-transition-trigger", {
-                detail: { x, y, theme: theme === "dark" ? "light" : "dark" },
-              })
-            );
-          }}
+          onClick={toggleTheme}
           className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden group"
           aria-label="Toggle theme"
         >

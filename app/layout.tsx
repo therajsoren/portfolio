@@ -6,8 +6,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
-import ThemeTransition from "@/components/ThemeTransition";
-
 const rubik = Rubik({
   variable: "--font-rubik",
   subsets: ["latin"],
@@ -68,11 +66,11 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange={false}
+          storageKey="raj-theme"
         >
-          <ThemeTransition />
           <Header />
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
           <SpeedInsights />
