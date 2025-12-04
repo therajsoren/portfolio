@@ -1,5 +1,5 @@
 "use client";
-import { FormEvent, useState, useCallback } from "react";
+import { FormEvent, useState, useCallback, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, AlertCircle, AlertTriangle } from "lucide-react";
@@ -17,8 +17,14 @@ const Contact = () => {
   const [nameError, setNameError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [messageSent, setMessageSent] = useState(false);
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   const fireConfetti = useCallback(() => {
     const duration = 3000;
@@ -258,8 +264,8 @@ const Contact = () => {
                   nameError
                     ? "border-red-500 bg-red-500/10"
                     : isDark
-                      ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
-                      : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
+                    ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
+                    : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
                 }`}
               />
               <AnimatePresence>
@@ -302,10 +308,10 @@ const Contact = () => {
                   emailError
                     ? "border-red-500 bg-red-500/10"
                     : emailWarning
-                      ? "border-yellow-500 bg-yellow-500/10"
-                      : isDark
-                        ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
-                        : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
+                    ? "border-yellow-500 bg-yellow-500/10"
+                    : isDark
+                    ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
+                    : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
                 }`}
               />
               <AnimatePresence>
@@ -381,8 +387,8 @@ const Contact = () => {
                 messageError
                   ? "border-red-500 bg-red-500/10"
                   : isDark
-                    ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
-                    : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
+                  ? "bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-white/30"
+                  : "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-400"
               }`}
             />
             <AnimatePresence>

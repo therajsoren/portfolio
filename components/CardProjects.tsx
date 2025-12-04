@@ -4,14 +4,20 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
 
 const CardProjects = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
     <div
@@ -82,7 +88,9 @@ const CardProjects = () => {
                     }`}
                   >
                     <Github
-                      className={`w-4 h-4 ${isDark ? "text-white" : "text-gray-700"}`}
+                      className={`w-4 h-4 ${
+                        isDark ? "text-white" : "text-gray-700"
+                      }`}
                     />
                   </motion.div>
                 </Link>
@@ -101,7 +109,9 @@ const CardProjects = () => {
                     }`}
                   >
                     <ExternalLink
-                      className={`w-4 h-4 ${isDark ? "text-white" : "text-gray-700"}`}
+                      className={`w-4 h-4 ${
+                        isDark ? "text-white" : "text-gray-700"
+                      }`}
                     />
                   </motion.div>
                 </Link>
@@ -140,7 +150,9 @@ const CardProjects = () => {
                       height={14}
                     />
                     <span
-                      className={`text-xs font-lato ${isDark ? "text-white/60" : "text-gray-600"}`}
+                      className={`text-xs font-lato ${
+                        isDark ? "text-white/60" : "text-gray-600"
+                      }`}
                     >
                       {tech.name}
                     </span>

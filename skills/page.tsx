@@ -6,7 +6,7 @@ import { motion, useInView } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 
 const Skill = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [mounted, setMounted] = useState(false);
@@ -15,11 +15,10 @@ const Skill = () => {
     setMounted(true);
   }, []);
 
-
   const duplicatedSkills = [...skills, ...skills, ...skills];
   const reversedSkills = [...skills, ...skills, ...skills].reverse();
 
-  const isDark = theme === "dark";
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
     <div
@@ -53,9 +52,7 @@ const Skill = () => {
         </p>
       </motion.div>
 
-    
       <div className="relative overflow-hidden py-4 mb-4">
-
         <div
           className={`absolute left-0 top-0 bottom-0 w-40 z-10 pointer-events-none ${
             isDark

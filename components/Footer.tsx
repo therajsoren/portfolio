@@ -3,10 +3,17 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion } from "motion/react";
 import { socialLinks } from "@/data";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
     <footer

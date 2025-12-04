@@ -60,6 +60,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('raj-portfolio-theme') || 'light';
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {
+                  document.documentElement.classList.remove('dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${rubik.variable} ${montserrat.variable} ${lato.variable} ${syne.variable} ${inter.variable} antialiased overflow-x-hidden font-rubik`}
       >
@@ -67,6 +87,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
+          forcedTheme={undefined}
           disableTransitionOnChange={false}
           storageKey="raj-portfolio-theme"
         >
