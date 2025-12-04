@@ -1,10 +1,10 @@
 "use client";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
 import { driveLinks } from "@/data";
+import { ThemeToggleButton } from "./theme-toggle-button";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -77,38 +77,7 @@ const Header = () => {
         </div>
 
         <div className="w-px h-4 bg-white/10 mx-1 hidden md:block" />
-
-        <button
-          onClick={toggleTheme}
-          className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden group"
-          aria-label="Toggle theme"
-        >
-          <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors rounded-full" />
-
-          <AnimatePresence mode="wait" initial={false}>
-            {theme === "dark" ? (
-              <motion.div
-                key="moon"
-                initial={{ scale: 0, rotate: 90 }}
-                animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: 90 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Moon className="w-4 h-4 text-white" />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="sun"
-                initial={{ scale: 0, rotate: -90 }}
-                animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: -90 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Sun className="w-4 h-4 text-white" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+        <ThemeToggleButton variant="circle" start="top-right" />
 
         <Link
           href={driveLinks}
