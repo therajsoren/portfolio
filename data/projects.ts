@@ -31,10 +31,6 @@ export const projects: ProjectsProps[] = [
         name: "TailwindCSS",
       },
       {
-        icon: "/shadcn.svg",
-        name: "ShadcnUI",
-      },
-      {
         icon: "/typescript.svg",
         name: "Typescript",
       },
