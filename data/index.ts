@@ -2,8 +2,7 @@ import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { IconType } from "react-icons/lib";
 
 export const driveLinks =
-  "https://drive.google.com/file/d/17KHvmjIyPDi6ELpKhQ_d7wGHpICVHAs6/view?usp=sharing";
-
+  "https://drive.google.com/file/d/1GwsqinXHihSRLSNEh5yzkdN8cf3zVLmD/view?usp=sharing";
 export const lightThemeIcons: { [key: string]: string } = {
   ShadcnUI: "/shadcn-light.svg",
   "Express.js": "/expressjs.svg",
